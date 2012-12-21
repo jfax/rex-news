@@ -262,7 +262,7 @@ class rex_336_news {
 		}
         
         // http://www.redaxo.org/de/forum/addons-f30/news-addon-d-mind-t18730.html
-        #if (!class_exists('Smarty')) include('redaxo/include/addons/news/libs/Smarty.class.php');
+        if (!class_exists('Smarty')) include('redaxo/include/addons/news/libs/Smarty.class.php');
         $t = new Smarty;
         $t->debugging = false;
         $t->caching = false;
