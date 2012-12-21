@@ -1,0 +1,23 @@
+/**
+ * Addon News
+ * @author fuchs@d-mind.de Jens Fuchs
+ * @package redaxo4
+ * 2008/06/02 
+ * 2012/11/12 ausgemistet
+ */
+
+16.11.2012
+Fertigstellung Basisaddon, Prüfung Installationsroutine, Deinstallation
+
+19.11.2012
+- Einbindung Sortierauswahl im Modul, Parameter $this->sort in rex_336_news::showList()
+- News - verkürzte Darstellung durch Wahlmöglichkeit des Templates, neue $this->template in rex_336_news eingeführt
+- rex_336_news: Newsdetail: Downloads: Elemente ergänzt: Datum, Uhrzeit, Dateityp
+- rex_336_news: Newsdetail: Bilder analog Downloads im Template einzeln ansprechbar gemacht
+
+22.11.2012
+- News-Addon: Feld Verschlagwortung hinzugefügt
+  install.sql
+  entries.inc.php, keywords, Zeile 346 ff.
+  class.336news.inc.php, Zeile 143, Zeile 48
+  news_detail.tpl

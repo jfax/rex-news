@@ -1,0 +1,100 @@
+#
+# News Addon 
+# @author Jens Fuchs
+# @package redaxo4
+#
+
+menu_title = Activities
+
+label_headline = titel
+label_article = text
+label_register_text = announcement
+label_register_url = announcement URL
+label_language = language
+label_online = event begin
+label_offline = event end
+label_event_date_start = event begin
+label_event_date_end = event end
+label_event_time = event period
+label_teaser = teaser
+label_subheadline = abstract
+label_image = image
+label_image_descr = caption
+label_files1 = file 1
+label_files2 = file 2
+label_files3 = file 3
+label_files4 = file 4
+label_files5 = file 5
+label_category = category
+
+label_list = entry list
+label_form = edit entry
+label_id = ID
+label_status = status
+label_author = author
+label_message = message<br />
+label_url = URL
+label_email = e-mail<br />
+label_plz = postcode 
+label_files = files 
+label_firma = company
+label_city = city
+label_location = venue
+label_location_who = organizer
+label_location_address = adress
+label_location_url = venue URL
+label_created = creation date
+label_action = action
+label_kinder = child
+label_strasse = street
+label_hausnummer = number
+label_telefon = phone
+label_telefax = fax
+label_schwerpunkte = key aspects
+label_philosophie = Philosophie
+label_referenzen = Referenzen
+
+label_login = login
+label_username = username
+label_password = password
+
+label_form_cat = category
+label_name = name
+label_extras = description
+label_pnachname = partner lastname
+label_pvorname = partner firstname
+ad_subcats = edit subcategory
+ad_cats = edit category
+
+label_form_reply = edit entry
+label_reply = answer
+
+status_online = activ
+status_offline = inactiv
+
+reply = answers
+
+miss_nachname = Please enter your firstname!
+miss_message = Please enter a message!
+
+incorect_email = Your e-mail is incorrect!
+incorect_url = The URL is incorrect!
+
+last_3_month = last 3 months
+last_4_month = last 4 months
+next_4_weeks = next 4 weeks
+next_3_month = next 3 months
+next_12_month = next 12 months
+all = all
+archiv = archiv
+topic =  topic
+back = back
+no_data = sorry no dataset 
+set_filter = set filter
+read_more = read more
+article = article
+
+saveStatusInDatei_FalscherStatus = Der Wert des Status stimmt nicht.
+saveStatusInDatei_Fehler = Konnte Status nicht speichern. Stimmen die Zugriffrechte auf das Verzeichnis guestbook/config/status.txt?
+readStatusFromFile_FalscherStatus = Der Wert des Status stimmt nicht.
+readStatusFromFile_Fehler = Konnte Status nicht speichern. Stimmen die Zugriffrechte auf das Verzeichnis guestbook/config/status.txt?s.txt?

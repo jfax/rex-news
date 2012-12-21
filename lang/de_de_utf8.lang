@@ -1,0 +1,86 @@
+#
+# News Addon 
+# @author Jens Fuchs
+# @package redaxo4
+#
+
+menu_title = News
+
+label_headline = Titel
+label_article = Text
+label_language = Sprache
+label_online = Online von
+label_offline = Online bis
+label_teaser = Teaser
+label_subheadline = Short Abstract
+label_image_descr = Bildunterschrift
+label_files = Datei
+label_category = Kategorie
+label_image = Bild
+
+label_list = Eintragsliste
+label_form = Eintrag bearbeiten
+label_id = ID
+label_status = Status
+label_author = Autor
+label_message = Nachricht<br />
+label_url = URL
+label_email = E-Mail<br />
+label_plz = PLZ
+label_firma = Firma
+label_city = Wohnort
+label_created = Erstellungsdatum
+label_action = Aktion
+label_kinder = Kinder
+label_strasse = Strasse
+label_hausnummer = Hsnr.
+label_telefon = Telefon
+label_telefax = Telefax
+label_schwerpunkte = Schwerpunkte
+label_philosophie = Philosophie
+label_referenzen = Referenzen
+
+label_login = Login
+label_username = Username
+label_password = Passwort
+
+label_form_cat = Kategorie
+label_name = Name
+label_extras = Beschreibung
+label_pnachname = Partner Nachname
+label_pvorname = Partner Vorname
+ad_subcats = Subkategorien bearbeiten
+ad_cats = Kategorien bearbeiten
+
+label_form_reply = Eintrag beantworten
+label_reply = Antwort
+
+status_online = aktiv
+status_offline = inaktiv
+
+reply = Antworten
+
+miss_nachname = Bitte einen Nachnamen angeben!
+miss_message = Bitte eine Nachricht angeben!
+
+incorect_email = Die angegebene Email-Adresse ist nicht gültig!
+incorect_url = Die angegebende Url ist nicht gültig!
+
+last_3_month = letzte 3 Monate
+last_4_month = letzte 4 Monate
+next_4_weeks = letzte 3 Wochen
+next_3_month = n&auml;chste 3 Monate
+next_12_month = n&auml;chste 12 Monate
+all = alle
+archiv = Archiv
+topic =  topic
+back = zur&uuml;ck
+no_data = keine Daten vorhanden 
+set_filter = Filter setzen
+read_more = mehr lesen...
+article = Artikel
+
+saveStatusInDatei_FalscherStatus = Der Wert des Status stimmt nicht.
+saveStatusInDatei_Fehler = Konnte Status nicht speichern. Stimmen die Zugriffrechte auf das Verzeichnis guestbook/config/status.txt?
+readStatusFromFile_FalscherStatus = Der Wert des Status stimmt nicht.
+readStatusFromFile_Fehler = Konnte Status nicht speichern. Stimmen die Zugriffrechte auf das Verzeichnis guestbook/config/status.txt?
