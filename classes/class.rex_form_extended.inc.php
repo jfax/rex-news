@@ -6,7 +6,7 @@
  * @version svn:$Id$
  */
 
-class rex_form_extended extends rex_form
+class rex_form_news_extended extends rex_form
 {
   
   var $clangs;
