@@ -3,7 +3,7 @@
 // ein weiteres Datenfeld, da hier Daten schnell in der Form
 // ddmmyy eingegeben werden sollen
 
-class rex_form_extended2 extends rex_form_extended
+class rex_form_news_extended2 extends rex_form_news_extended
 {
   function addDateFieldNew($name, $value = null, $attributes = array())
   {
