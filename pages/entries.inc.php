@@ -274,7 +274,7 @@ if ($func == "add" || $func == "edit") {
         $legend = "News editieren";
 
     //  function factory($tableName, $fieldset, $whereCondition, $method = 'post', $debug = false, $class = null)
-    $form = rex_form::factory(TBL_NEWS, $legend, 'id=' . $id, 'post', false, 'rex_form_extended2');
+    $form = rex_form::factory(TBL_NEWS, $legend, 'id=' . $id, 'post', false, 'rex_form_news_extended2');
     $form->addParam('clang', $clang);
 
     if ($func == 'edit')
