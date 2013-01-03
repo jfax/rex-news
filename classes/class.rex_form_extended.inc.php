@@ -45,7 +45,7 @@ class rex_form_news_extended extends rex_form
   	$this->timestampElements[] = $name;
     if(!isset($attributes['class']))
     	$attributes['class'] = 'rex-form-select-date';
-    $attributes['internal::fieldClass'] = 'rex_form_date_element';
+    $attributes['internal::fieldClass'] = 'rex_form_news_date_element';
     $field = $this->addField('', $name, $value, $attributes, true);
     return $field;
   }
@@ -55,7 +55,7 @@ class rex_form_news_extended extends rex_form
   	$this->timestampElements[] = $name;
     if(!isset($attributes['class']))
     	$attributes['class'] = 'rex-form-select-date';
-    $attributes['internal::fieldClass'] = 'rex_form_datetime_element';
+    $attributes['internal::fieldClass'] = 'rex_form_news_datetime_element';
     $field = $this->addField('', $name, $value, $attributes, true);
     return $field;
   }
@@ -65,7 +65,7 @@ class rex_form_news_extended extends rex_form
   	$this->timeElements[] = $name;
     if(!isset($attributes['class']))
     	$attributes['class'] = 'rex-form-select-date';
-    $attributes['internal::fieldClass'] = 'rex_form_time_element';
+    $attributes['internal::fieldClass'] = 'rex_form_news__time_element';
     $field = $this->addField('', $name, $value, $attributes, true);
     return $field;
   }
@@ -205,7 +205,7 @@ class rex_form_news_extended extends rex_form
 }
 
 
-class rex_form_date_element extends rex_form_element
+class rex_form_news_date_element extends rex_form_element
 {
   var $select_day;
   var $select_month;
@@ -214,7 +214,7 @@ class rex_form_date_element extends rex_form_element
 
   // 1. Parameter nicht genutzt, muss aber hier stehen,
   // wg einheitlicher Konstrukturparameter
-  function rex_form_date_element($tag = '', &$table, $attributes = array())
+  function rex_form_news_date_element($tag = '', &$table, $attributes = array())
   {
     parent::rex_form_element('', $table, $attributes);
 
@@ -274,7 +274,7 @@ class rex_form_date_element extends rex_form_element
 }
 
 
-class rex_form_datetime_element extends rex_form_date_element
+class rex_form_news_datetime_element extends rex_form_news_date_element
 {
   var $select_hour;
   var $select_minute;
@@ -282,9 +282,9 @@ class rex_form_datetime_element extends rex_form_date_element
 
   // 1. Parameter nicht genutzt, muss aber hier stehen,
   // wg einheitlicher Konstrukturparameter
-  function rex_form_datetime_element($tag = '', &$table, $attributes = array())
+  function rex_form_news_datetime_element($tag = '', &$table, $attributes = array())
   {
-    parent::rex_form_date_element('', $table, $attributes);
+    parent::rex_form_news_date_element('', $table, $attributes);
 
     $this->select_hour = new rex_select();
     $this->select_minute = new rex_select();
@@ -339,7 +339,7 @@ class rex_form_datetime_element extends rex_form_date_element
 
 
 
-class rex_form_time_element extends rex_form_element
+class rex_form_news_time_element extends rex_form_element
 {
   var $select_hour;
   var $select_minute;
@@ -352,7 +352,7 @@ class rex_form_time_element extends rex_form_element
 
   // 1. Parameter nicht genutzt, muss aber hier stehen,
   // wg einheitlicher Konstrukturparameter
-  function rex_form_time_element($tag = '', &$table, $attributes = array())
+  function rex_form_news_time_element($tag = '', &$table, $attributes = array())
   {
     parent::rex_form_element('', $table, $attributes);
 
