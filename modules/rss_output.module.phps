@@ -15,6 +15,7 @@ define (DESCRIPTION, "REX_VALUE[3]");
 define (RSSLINK, "REX_VALUE[4]");
 define (DETAILLINK, BASE.rex_getUrl("REX_LINK_ID[1]", '', array('newsid' => ''), '&'));
 define (LOGO, BASE."files/REX_FILE[1]");
+define (UTF8DECODE, "REX_VALUE[18]");
  
 include $REX['INCLUDE_PATH']."/addons/news/classes/rss_news.php"; 
 include $REX['INCLUDE_PATH']."/addons/news/classes/FeedWriter.php"; 
@@ -44,7 +45,8 @@ foreach ($posts as $post)
 
   //Add elements to the feed item
   //Use wrapper functions to add common feed elements
-  $newItem->setTitle(utf8_decode($post['post']['name']));
+  if (UTF8DECODE==1) $newItem->setTitle($post['post']['name']);
+  else $newItem->setTitle(utf8_decode($post['post']['name']));
   $newItem->setLink($post['post']['id']);
   //The parameter is a timestamp for setDate() function
   $newItem->setDate($post['post']['online_date']);
