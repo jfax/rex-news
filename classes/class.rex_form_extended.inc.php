@@ -5,7 +5,7 @@
  * @author Jens Fuchs <fuchs at d-mind.de>
  * @project Redaxo-News-Addon
  * @date 2008 - Updated 2013
- * 
+ *
  */
 
 class rex_form_news_extended extends rex_form
