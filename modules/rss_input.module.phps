@@ -8,7 +8,7 @@
  * @date 15.11.2012
  */
 ?> 
-<strong>Root-Verzeichnis des Projektes (http://www.domain.com)</strong><br />
+<strong>Root-Verzeichnis des Projektes (http://www.domain.com) mit abschl. "/" hinten</strong><br />
 <input type="text" name="VALUE[1]" value="REX_VALUE[1]" style="width:250px;" />
 <br /><br />
 <strong>Titel des RSS-Feeds</strong><br />
@@ -35,14 +35,25 @@ echo $dbg->get();
 ?>
 <br />
 <br />
-
+<strong>UTF8-Decodierung des Titels (bei fehlerhafter Ausgabe umstellen)?</strong><br />
+<?php
+$dbg = new rex_select();
+$dbg->setName("VALUE[18]");
+$dbg->setSize(1);
+$dbg->addOption('Ja', 0);
+$dbg->addOption('Nein', 1);
+$dbg->setSelected("REX_VALUE[18]");
+echo $dbg->get();
+?>
+<br />
+<br />
 <strong>Description des RSS-Feeds</strong><br />
 <input type="text" name="VALUE[3]" value="REX_VALUE[3]" style="width:250px;" />
 <br /><br />
 <strong>Absolute URL des RSS-Feeds</strong><br />
 <input type="text" name="VALUE[4]" value="REX_VALUE[4]" style="width:250px;" />
 <br /><br />
-<strong>Newsdetailartikel wählen</strong><br />
+<strong>Newsdetailartikel wï¿½hlen</strong><br />
 REX_LINK_BUTTON[1]
 <br />
 <strong>Firmenlogo</strong><br />
