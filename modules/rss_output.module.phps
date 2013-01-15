@@ -47,7 +47,7 @@ foreach ($posts as $post)
   //Use wrapper functions to add common feed elements
   if (UTF8DECODE==1) $newItem->setTitle($post['post']['name']);
   else $newItem->setTitle(utf8_decode($post['post']['name']));
-  $newItem->setLink($post['post']['id']);
+  $newItem->setLink(DETAILLINK.$post['post']['id']);
   //The parameter is a timestamp for setDate() function
   $newItem->setDate($post['post']['online_date']);
   if ($post['post']['thumb']!="")
