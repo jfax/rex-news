@@ -39,9 +39,17 @@ class news_rss
         if ($cat<>999)
             $addSql = " AND category LIKE '%|".$cat."|%'";
 		
-		$qry = "	SELECT * 
+        $addWhere = ' WHERE (
+                ((offline_date = "0000-00-00") OR (REPLACE(offline_date, "-", "") > CURDATE() + 0))
+                AND
+                ((archive_date = "0000-00-00") OR REPLACE(archive_date, "-", "") > CURDATE() + 0)
+                AND 
+                ((online_date = "0000-00-00") OR REPLACE(online_date, "-", "") <= CURDATE() + 0)
+        )';        
+        
+        $qry = "	SELECT * 
 					FROM ".TBL_NEWS." 
-					WHERE (offline_date = \"0000-00-00\" OR (REPLACE(offline_date, \"-\", \"\") > CURDATE() + 0)) 
+                    ".$addWhere."
 					AND status=1 
                     ".$addSql."
 					ORDER BY online_date DESC
