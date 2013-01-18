@@ -17,7 +17,7 @@
 <strong>Titel des RSS-Feeds</strong><br />
 <input type="text" name="VALUE[2]" value="REX_VALUE[2]" style="width:250px;" />
 <br /><br />
-<strong>Einsch&auml;nkung auf Kategorie</strong><br />
+<strong>Einsch&auml;nkung auf Kategorie (bei mehreren Strg-Taste gedrueckt halten)</strong><br />
 <?php
 $qry = 'SELECT id, name FROM '.$REX['TABLE_PREFIX'].'336_news_cats ORDER BY name';
 $sql = new rex_sql();
@@ -26,8 +26,8 @@ $dbg = new rex_select();
 $dbg->setName("VALUE[15][]");
 $dbg->setMultiple(true);
 $dbg->setSize(6);
+$value15 = explode("~~", "REX_VALUE[15]");
 $dbg->addOption('Alle',999);
-$value15 = split("~~", "REX_VALUE[15]");
 if (is_array($results)) 
 {
 	foreach($results as $result) 
@@ -39,6 +39,10 @@ if (is_array($results))
         }
 	}
 } 
+if (in_array(999, $value15))
+{
+    $dbg->setSelected(999);
+}
 echo $dbg->get();
 ?>
 <br />
