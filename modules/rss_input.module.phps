@@ -6,6 +6,9 @@
  * @author Jens Fuchs <fuchs at d-mind.de>
  * @project Redaxo-News-Addon
  * @date 15.11.2012
+ * 
+ * 18.01.2013: Moeglichkeit, mehrere Kategorien auszuwaehlen
+ * Dazu muss unbedingt beiliegende Action (Presave, Add, Eddit) angelegt und mit dem Modul verknuepft werden
  */
 ?> 
 <strong>Root-Verzeichnis des Projektes (http://www.domain.com) mit abschl. "/" hinten</strong><br />
@@ -20,17 +23,22 @@ $qry = 'SELECT id, name FROM '.$REX['TABLE_PREFIX'].'336_news_cats ORDER BY name
 $sql = new rex_sql();
 $results = $sql->getArray($qry);
 $dbg = new rex_select();
-$dbg->setName("VALUE[15]");
-$dbg->setSize(1);
+$dbg->setName("VALUE[15][]");
+$dbg->setMultiple(true);
+$dbg->setSize(6);
 $dbg->addOption('Alle',999);
+$value15 = split("~~", "REX_VALUE[15]");
 if (is_array($results)) 
 {
 	foreach($results as $result) 
 	{
 		$dbg->addOption($result['name'],$result['id']);
+        if (in_array($result['id'], $value15))
+        {
+            $dbg->setSelected($result['id']);
+        }
 	}
 } 
-$dbg->setSelected("REX_VALUE[15]");
 echo $dbg->get();
 ?>
 <br />
