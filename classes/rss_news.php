@@ -12,7 +12,7 @@ class news_rss
 		
 	public function execute($cat) 
 	{
-		return self::showList($cat);
+        return self::showList($cat);
 	}
 	
 	
@@ -34,10 +34,14 @@ class news_rss
 	
 	private function showList($cat)
 	{
-		
         $addSql = "";
-        if ($cat<>999)
-            $addSql = " AND category LIKE '%|".$cat."|%'";
+        $cats = explode("~~", $cat);
+        if (!in_array(999, $cats))
+        {
+            $addSql = 'AND category LIKE \'%|';
+            $addSql .= implode('|%\' OR category LIKE \'%|', $cats);
+            $addSql .= '|%\'';
+        }
 		
         $addWhere = ' WHERE (
                 ((offline_date = "0000-00-00") OR (REPLACE(offline_date, "-", "") > CURDATE() + 0))
@@ -54,7 +58,6 @@ class news_rss
                     ".$addSql."
 					ORDER BY online_date DESC
 				";
-				
 		$sql = new rex_sql();
 		#$sql->debugsql = true;
 		$data = $sql->getArray($qry);
