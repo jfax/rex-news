@@ -27,6 +27,7 @@ CREATE TABLE `%TABLE_PREFIX%336_news` (
   `flag` int(1) NOT NULL default '0',
   `archive` int(1) NOT NULL default '0',
   `status` int(1) NOT NULL default '0',
+  `stickyUntil` DATE NOT NULL, 
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2;
 
