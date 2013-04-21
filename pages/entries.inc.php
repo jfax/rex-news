@@ -162,6 +162,7 @@ if ($func == '') {
                     clang, 
                     status, 
                     flag, 
+					stickyUntil, 
                     category, 
                     createdate 
                     FROM ' . TBL_NEWS . '
@@ -174,7 +175,7 @@ if ($func == '') {
                     ORDER BY online_date desc'
                      , '5000', '', false, 'rex_list_extended'
             );
-            $list->addTableColumnGroup(array(20, '*', 80, 40, 60, 60, 60, 60));
+            $list->addTableColumnGroup(array(20, '*', 80, 40, 60, 40, 40, 40, 60, 60));
         }
 
         $imgHeader = '<a href="' . $list->getUrl(array('func' => 'add', 'clang' => $clang)) . '"><img src="media/metainfo_plus.gif" alt="' . $I18N->msg('b_504_add') . '" title="' . $I18N->msg('b_504_add') . '" /></a>';
@@ -242,7 +243,16 @@ if ($func == '') {
                 )
         );
 
-        $list->setColumnLabel('category', 'Archiv');
+		$list->setColumnLabel('stickyUntil','<span style="border-bottom: 1px dashed #CA5305; cursor: help;" title="Wenn gesetzt, ist der Artikel immer auf der Startseite, bis das angegebene Datum erreicht ist">sticky</span>');
+		$list->setColumnFormat('stickyUntil', 'custom',
+			create_function(
+			  '$params',
+			  '$list = $params["list"];
+			   return displaySticky($list->getValue("id"));'
+			)
+		);
+
+		$list->setColumnLabel('category', 'Archiv');
         $list->setStatusColumn('category', TBL_NEWS);
         $list->setColumnFormat('category', 'custom', create_function(
                     '$params', '$list = $params["list"];
@@ -334,7 +344,11 @@ if ($func == "add" || $func == "edit") {
     $select->addOption("nein", 0);
     $select->addOption("ja", 1);
 
-    $field = $form->addTextareaField('name', NULL, array('rows' => 2));
+	// 21.04.2013: Added Sticky Function 
+	$field = $form->addDateFieldNew('stickyUntil', NULL, array('style' => 'width:80px; margin-right:5px;'));
+	$field->setLabel('Immer auf Startseite bis');
+	
+	$field = $form->addTextareaField('name', NULL, array('rows' => 2));
     $field->setLabel('Titel');
 
     // Thumbnail
