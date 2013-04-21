@@ -312,3 +312,19 @@ function echo_js_for_counter($characterSize) {
         </script>
     ";
 }
+
+/*
+ * @author Jens Fuchs, fuchs@d-mind.de
+ * @date 2013-04-32
+ * @param id
+ * @return string
+ */
+function displaySticky($id, $table = TBL_NEWS)
+{
+	$qry = 'SELECT stickyUntil FROM '.$table.' WHERE id='.$id;
+	$sql = new rex_sql();
+    $sql->setQuery($qry);
+    $items = $sql->getArray();
+	if (strtotime($sql->getValue('stickyUntil')) >= time()) return "<em>".$sql->getValue('stickyUntil')."</em>";
+	
+}
