@@ -24,6 +24,7 @@ if (!$REX['REDAXO']) {
     $news->debug = "REX_VALUE[5]";
     $news->detailArticle = "REX_LINK_ID[7]";
     $news->id = $this->article_id;
+	$news->start_article_id = $REX['START_ARTICLE_ID'];
     $news->template = "REX_VALUE[14]";
     if ('REX_VALUE[6]' == 'list') $news->showList();
     if ('REX_VALUE[6]' == 'detail') $news->showDetail();
