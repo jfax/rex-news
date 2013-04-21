@@ -238,11 +238,23 @@ class rex_336_news {
 		if ($this->view==1) $addSQL .= ' AND flag = 1';
         else if ($this->view==2) $addSQL .= ' AND flag = 0';
 
-		$qry = 'SELECT *
+		// 21.04.2013: StickyNews auf Startseite priorisiert
+		$addSticky=$addOrderBy="";
+		if ($this->id == $this->start_article_id) {
+			$addSticky = ',
+				CASE 
+				WHEN REPLACE(stickyUntil, "-", "") > CURDATE() + 0 THEN true
+				ELSE false
+				END as st		
+			';
+			$addOrderBy = 'st DESC, ';
+		}
+		
+		$qry = 'SELECT * '.$addSticky.'
 				FROM '.TBL_NEWS.' 
 				'.$addWhere.'
 				'.$addSQL.'
-				ORDER BY online_date '.$this->sort
+				ORDER BY '.$addOrderBy.'online_date '.$this->sort
                 ;
 		if ( $result = mysql_query($qry) ) 
 			$total = mysql_num_rows($result);
