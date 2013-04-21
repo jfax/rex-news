@@ -33,6 +33,17 @@ jQuery(document).ready(function() {
             buttonImageOnly: true
         }        
     );
+    jQuery("#rex_336_news_News_anlegen_stickyUntil").datepicker(
+        {
+            numberOfMonths: 2, 
+            showButtonPanel: true, 
+            appendText: '(yyyy-mm-dd)', 
+            dateFormat: 'yy-mm-dd', 
+            showOn: 'button', 
+            buttonImage: '../files/addons/news/images/calendar.gif', 
+            buttonImageOnly: true
+        }        
+    );
     jQuery("#rex_336_news_News_editieren_online_date").datepicker(
         {
             numberOfMonths: 2, 
@@ -56,6 +67,17 @@ jQuery(document).ready(function() {
         }        
     );
     jQuery("#rex_336_news_News_editieren_offline_date").datepicker(
+        {
+            numberOfMonths: 2, 
+            showButtonPanel: true, 
+            appendText: '(yyyy-mm-dd)', 
+            dateFormat: 'yy-mm-dd', 
+            showOn: 'button', 
+            buttonImage: '../files/addons/news/images/calendar.gif', 
+            buttonImageOnly: true
+        }        
+    );
+    jQuery("#rex_336_news_News_editieren_stickyUntil").datepicker(
         {
             numberOfMonths: 2, 
             showButtonPanel: true, 
