@@ -8,7 +8,7 @@
  * @date 15.11.2012
  */
 
-if (!$REX['REDAXO']) {
+if ($REX['GG']==1) {
     if (!class_exists('rex_336_news')) include $REX['HTDOCS_PATH']."/redaxo/include/addons/news/classes/class.336news.inc.php";
     $news = new rex_336_news();
     $news->num = "REX_VALUE[1]";
