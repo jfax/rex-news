@@ -284,7 +284,8 @@ function replace_conf_keys($key) {
         'image_list_type' => 'Name des Bildtyps im Addon "Image Manager" für die Bildausgabe in der Listenübersicht (dort ist auch z. B. die Breite zu definieren), für Facebook-Like-Bilder (og:image) ist zu beachten, dass das Bild mind. 200px auf 200px sein sollte (http://developers.facebook.com/docs/reference/plugins/like/)',
         'image_detail_type' => 'Name des Bildtyps im Addon "Image Manager" für die Bildausgabe in der Detailansicht',
         'image_default_opengraph' => 'Absolute URL des Default-Logos, das für Facebook-likes verwendet wird (Logo?), sofern kein anderes Bild vorhanden ist',
-        );
+        'rewrite' => 'SEO-freundliches Umschreiben der Newsartikel ermöglichen (alpha)? Erfordert den Eintrag in der .htaccess:<br><code>RewriteCond %{REQUEST_URI}  /(.*)/([0-9]+)/([0-9]+)/([0-9a-zA-Z+_-]+).html$<br>RewriteRule ^(.*/)(.*)/(.*)/(.*).html$ index.php?article_id=$2&newsid=$3 [L]</code>.<br>In aktuellem Projekt war im Haupttemplate noch vonnöten, vor dem Aufruf von $this->getArticle() noch folgendes einzufügen: <br><code>if (rex_request(\'article_id\', \'int\')>0) { <br>$this->setArticleId(rex_request(\'article_id\', \'int\'));<br> }</code>'
+    );
     return $replace[$key];
 }
 
