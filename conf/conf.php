@@ -16,3 +16,4 @@ $REX_NEWS_CONF['max_items'] = 600;
 $REX_NEWS_CONF['image_list_type'] = 'rex_mediabutton_preview';
 $REX_NEWS_CONF['image_detail_type'] = 'rex_mediabutton_preview';
 $REX_NEWS_CONF['image_default_opengraph'] = 'http://localhost/redaxo-news/files/dummylogo.gif';
+$REX_NEWS_CONF['rewrite'] = 0;
