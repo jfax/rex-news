@@ -292,8 +292,16 @@ class rex_336_news {
 				// Selbe News ausschliessen, falls in rechter Spalte Liste
 				if ($row['id']==rex_request('newsid')) continue;
 				
-                $url = rex_getUrl($this->detailArticle, $this->language, array('newsid' => $row['id']), '&amp;');
-				
+				include "redaxo/include/addons/".MY_PAGE."/conf/conf.php";
+
+				if ($this->detailArticle) {
+					if ($REX_NEWS_CONF['rewrite']==1) {
+						$url = self::rewriteNewsUrls($row['name'], $row['id']);
+					} else {
+						$url = rex_getUrl($this->detailArticle, $this->language, array('newsid' => $row['id']), '&amp;');
+					}
+				}
+
                 $item[$i]['id'] = $row['id'];
                 $item[$i]['name'] = $row['name'];
                 $item[$i]['url'] = $url;
@@ -335,7 +343,6 @@ class rex_336_news {
                             $MediaDesc = $media->getValue('med_description');
                         }
                     }
-                    include "redaxo/include/addons/".MY_PAGE."/conf/conf.php";
                     $item[$i]['image'] = '<a href="' . $url . '" title="' . $row['name'] . '"><img src="index.php?rex_img_type='.$REX_NEWS_CONF['image_list_type'].'&amp;rex_img_file='.$images[0].'" title="'.$mediaTitle.'" alt="'.$MediaDesc.'" /></a>';
 				}
 				$i++;
@@ -344,6 +351,57 @@ class rex_336_news {
         $t->assign("pager", $pager);
         $t->assign("data", $item);
         $t->display($this->template);        
+	}
+
+
+	/*
+	* @author Jens Fuchs <fuchs at d-mind.de>
+	* @project Redaxo-News-Addon
+	* @date 31.08.2015
+	* @param string
+	* @param int
+	* @return string
+	* @Umschreiben der News-Urls - SEO-freundlich
+	*/
+	private function rewriteNewsUrls ($title, $newsId) {
+
+		$special_chars = 'ä|ö|ü|Ä|Ö|Ü|ß|&';
+		$special_chars_rewrite = 'ae|oe|ue|Ae|Oe|Ue|ss|und';
+
+		$words_to_delete = array('bei-', 'und-', 'zu-', 'zum-');
+
+		$translation = array(
+			'search'  => explode('|', $special_chars),
+			'replace' => explode('|', $special_chars_rewrite),
+		);
+
+		$url = rex_getUrl($this->detailArticle, $this->language);
+		$urlParts = explode("/", $url);
+
+		$truncateLastElement = array_pop($urlParts);
+		$newUrl = implode($urlParts, "/");
+
+		$r =
+			$newUrl . '/' . $this->detailArticle .
+			'/' . $newsId . '/' .
+			strtolower(
+			// + durch - ersetzen
+				str_replace('+','-',
+					// ggf uebrige zeichen url-codieren
+					urlencode(
+					// mehrfach hintereinander auftretende spaces auf eines reduzieren
+						preg_replace('/ {2,}/',' ',
+							// alle sonderzeichen raus
+							preg_replace('/[^a-zA-Z_\-0-9 ]/', '',
+								// sprachspezifische zeichen umschreiben
+								str_replace($translation['search'], $translation['replace'], $title)
+							)
+						)
+					)
+				)
+			) . ".html";
+
+		return str_replace($words_to_delete, "", $r);
 	}
 
 
